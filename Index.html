@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <title>Login to Validate Invoice</title>  
+ <link rel="stylesheet" type="text/css" href="style.css"> 
+ <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+ 
+</head>
+<body>
+    <div class="login-page">
+        <div class="form">
+            <form >
+                <input type="text" placeholder="Subscription ID" required="required" id="subsId">
+                <label class="font date">Start Date</label>
+                <input type="date" placeholder="Billing_Period" id="startDate" >
+                <label class="font date">End Date</label>
+                <input type="date" placeholder="Billing_Period" id="endDate" >
+                
+<input type="submit" value="Submit" onclick= "UserAction()"/>
+            </form>
+
+            </div>
+            </div>
+</body>
+</html>
+
+<script >
+
+function UserAction(){
+
+    var subsId=$("#subsId").val();
+    var startDate=$("#startDate").val();
+    var endDate=$("#endDate").val();
+    var url="https://api.postalpincode.in/pincode/700059";
+	console.log(subsId+","+startDate+","+endDate);
+    $.ajax({
+        url:url,
+        type:"GET",
+      
+
+        // data:{
+        //   item_id: id,
+        // },
+        success:function(response) {
+          //document.getElementById("total_items").value=response;
+            
+         console.log(response);
+       },
+       error:function(){
+        alert("error");
+       }
+
+      });
+}
+
+</script>
